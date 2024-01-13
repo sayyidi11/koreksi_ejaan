@@ -147,11 +147,6 @@ if (selected == "Dashboard"):
     st.write(
         "2. Penggunaan Cache yang Menyimpan Ejaab Query yang Pernah Dilakukan Koreksi")
     st.write("Dua Pendekatan yang Dilakukan Berfungsi Untuk Meningkatkan Kecepatan Proses Waktu Koreksi yang Dilakukan.")
-
-    session_id = st.report_thread.get_report_ctx().session_id
-    
-    # Menampilkan session ID
-    st.write("Session ID:", session_id)
     
 if (selected == "Damerau Levenshtein Distance with Distribusi Kamus & Cache"):
     st.title("Koreksi Ejaan Damerau with Distibusi Kamus & Cache")
@@ -219,7 +214,7 @@ if (selected == "Damerau Levenshtein Distance with Distribusi Kamus & Cache"):
         st.write(f"Lama Proses = {final_time} Detik")
 
         data_cache.update(cache)
-        with open("../data_cache.json", "w") as json_file:
+        with open("data_cache.json", "w") as json_file:
             json.dump(data_cache, json_file)
 
         st.header("_______________________________")
@@ -412,7 +407,7 @@ if (selected == "Damerau Levenshtein Distance with Cache"):
         st.write(f"Lama Proses = {final_time} Detik")
 
         data_cache.update(cache)
-        with open("../data_cache.json", "w") as json_file:
+        with open("data_cache.json", "w") as json_file:
             json.dump(data_cache, json_file)
 
         st.header("_______________________________")
