@@ -153,6 +153,13 @@ if (selected == "Damerau Levenshtein Distance with Distribusi Kamus & Cache"):
 
     st.header("_______________________________________")
 
+
+    session_id = st.report_thread.get_report_ctx().session_id
+    
+    # Menampilkan session ID
+    st.write("Session ID:", session_id)
+
+
     if st.button("Data Cache"):
         st.json(data_cache)
 
