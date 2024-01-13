@@ -16,13 +16,13 @@ with st.sidebar:
 
     default_index = 0
 
-with open("../data_cache.json", "r") as json_file:
+with open("data_cache.json", "r") as json_file:
     data_cache = json.load(json_file)
 
-df = pd.read_csv("../data_fix.csv")
+df = pd.read_csv("data_fix.csv")
 df["Panjang"] = df["a-beta"].apply(len)
 
-df_judul_berita = pd.read_excel("../Data_Berita_Pariwisata.xlsx")
+df_judul_berita = pd.read_excel("Data_Berita_Pariwisata.xlsx")
 
 
 def validasi_kata(query_input):
