@@ -24,6 +24,12 @@ df["Panjang"] = df["a-beta"].apply(len)
 
 df_judul_berita = pd.read_excel("Data_Berita_Pariwisata.xlsx")
 
+def clear_cache():
+    data = {}
+
+    # Menulis kembali file JSON dengan objek JSON kosong
+    with open("data_cache.json", 'w') as file:
+        json.dump(data, file)
 
 def validasi_kata(query_input):
     kamus_baru = df.query(f'Panjang == {len(query_input)}')["a-beta"]
@@ -154,8 +160,13 @@ if (selected == "Damerau Levenshtein Distance with Distribusi Kamus & Cache"):
     st.header("_______________________________________")
 
 
-    if st.button("Data Cache"):
-        st.json(data_cache)
+    col1, col2 = st.columns([4, 1])
+    with col1:
+        if st.button("Data Cache  "):
+            st.json(data_cache)
+    with col2:
+        if st.button("Clear Cache"):
+            clear_cache()
 
     queryku = st.text_input('Masukkan Query')
 
@@ -347,8 +358,13 @@ if (selected == "Damerau Levenshtein Distance with Cache"):
 
     st.header("_______________________________________")
 
-    if st.button("Data Cache  "):
-        st.json(data_cache)
+    col1, col2 = st.columns([4, 1])
+    with col1:
+        if st.button("Data Cache  "):
+            st.json(data_cache)
+    with col2:
+        if st.button("Clear Cache"):
+            clear_cache()
 
     queryku = st.text_input('Masukkan Query ')
 
